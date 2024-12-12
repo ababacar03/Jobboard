@@ -1,0 +1,80 @@
+body {
+    background-color: white; /* Couleur de fond de la page */
+}
+
+.job-column {
+    width: 100%; /* La colonne occupe toute la largeur disponible */
+    display: flex;
+    justify-content: flex-start; /* Aligne les éléments sur la gauche */
+    margin-left: 0; /* Supprime toute marge à gauche */
+    padding-left: 0; /* Supprime tout espacement à gauche */
+}
+
+.job-card {
+    width: 100%; /* Chaque carte prend la pleine largeur */
+    max-width: 600px; /* Limite la largeur de chaque carte à 600px */
+    margin: 0; /* Supprime toute marge */
+    padding: 20px; /* Ajoute de l'espace à l'intérieur de la carte */
+    border: 3px solid #ddd; /* Bordure légère autour de la carte d'emploi */
+    border-radius: 10px; /* Arrondit les coins de la carte */
+    background-color: #fff; /* Couleur de fond de la carte d'emploi */
+    transition: box-shadow 0.3s ease; /* Transition pour l'effet d'ombre au survol */
+}
+
+.job-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Effet d'ombre lors du survol de la carte */
+}
+
+.job-title {
+    font-size: 1.5rem; /* Taille de la police du titre de l'emploi */
+    font-weight: 600; /* Épaisseur de la police du titre */
+    margin-bottom: 10px; /* Espace sous le titre */
+}
+
+.job-description {
+    font-size: 1rem; /* Taille de la police de la description */
+    color: #666; /* Couleur du texte de la description */
+    margin-bottom: 20px; /* Espace sous la description */
+}
+
+.learn-more-btn {
+    background-color: #007bff; /* Couleur de fond du bouton "En savoir plus" */
+    color: white; /* Couleur du texte du bouton */
+    padding: 10px 20px; /* Espace intérieur du bouton */
+    border-radius: 5px; /* Arrondit les coins du bouton */
+}
+
+.learn-more-btn:hover {
+    background-color: #cbd1d8; /* Couleur de fond du bouton au survol */
+    text-decoration: none; /* Supprime le soulignement au survol */
+}
+
+.job-list-container,
+#job-details {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Assure que les deux colonnes ont la même hauteur */
+    background-color: white;
+}
+
+#apply-button {
+    width: 100%; /* Rendre le bouton de postulation aussi large que la carte */
+    transition: background-color 0.3s ease; /* Transition douce pour l'effet au survol */
+}
+
+#apply-button:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+/* CSS pour rendre la section des détails de l'annonce sticky */
+.job-details {
+    position: sticky; /* Rend la section sticky */
+    top: 20px; /* Distance à partir du haut de la fenêtre de visualisation */
+    padding: 20px; /* Ajoute un espacement intérieur */
+    background-color: #fff; /* Couleur de fond */
+    border: 3px solid #ddd; /* Bordure légère */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+    z-index: 10; /* S'assurer que la div reste au-dessus des autres contenus */
+    flex: 1; /* Permet à la carte de détails de s'étendre pour remplir l'espace */
+}

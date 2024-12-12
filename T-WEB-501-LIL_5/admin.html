@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gestion des Offres d'Emploi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        /* Styles globaux */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Couleur de fond claire */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        /* Titre principal */
+        h1, h2 {
+            text-align: center;
+            color: #007bff; /* Couleur principale */
+        }
+
+        /* Table des annonces */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        table td {
+            background-color: #f9f9f9;
+        }
+
+        /* Styles du formulaire */
+        form {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Bouton d'ajout */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Liens d'action */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="index.html">
+            <img src="logo.png" width="30" height="30" alt="MAemplois"> 
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Déconnexion</a> <!-- Lien vers la déconnexion -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Admin - Gestion des Offres d'Emploi</h1>
+
+        <!-- Formulaire pour ajouter une offre -->
+        <h2>Ajouter une Nouvelle Offre</h2>
+        <form id="add-job-form" method="POST">
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="short_description">Description Courte</label>
+                <input type="text" class="form-control" id="short_description" name="short_description" required>
+            </div>
+            <div class="form-group">
+                <label for="learn_more">Lien "En Savoir Plus"</label>
+                <input type="text" class="form-control" id="learn_more" name="learn_more" required>
+            </div>
+            <div class="form-group">
+                <label for="wage">Salaire (€)</label>
+                <input type="number" class="form-control" id="wage" name="wage" required>
+            </div>
+            <div class="form-group">
+                <label for="place">Lieu</label>
+                <input type="text" class="form-control" id="place" name="place" required>
+            </div>
+            <div class="form-group">
+                <label for="working_time">Temps de Travail</label>
+                <input type="text" class="form-control" id="working_time" name="working_time" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter l'Offre</button>
+        </form>
+
+        <hr>
+
+        <!-- Liste des offres -->
+        <h2>Liste des Offres</h2>
+        <table class="table table-bordered" id="job-table">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Description Courte</th>
+                    <th>Salaire (€)</th>
+                    <th>Lieu</th>
+                    <th>Temps de Travail</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les offres seront insérées ici via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 MAemplois. Tous droits réservés.</p>
+    </footer>
+
+    <script src="admin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
